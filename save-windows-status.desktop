@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/bin/save-windows-status
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Save windows status
+Comment=Aplicação que restaura estado das janelas

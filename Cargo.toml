@@ -1,0 +1,29 @@
+[package]
+name = "save-windows-status"
+version = "0.1.0"
+authors = ["Gustavo Guarda <gustavoguarda@gmail.com>"]
+description = "GNOME application that saves and restores window state"
+license = "MIT"
+
+[dependencies]
+gtk = "0.9"
+gio = "0.9"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.1", features = ["derive"] }
+dirs = "3.0"
+dotenv = "0.15"
+glib = "0.10.3"
+
+[package.metadata.deb]
+maintainer = "Gustavo Guarda <gustavoguarda@gmail.com>"
+extended-description = "GNOME application that saves and restores window state"
+depends = "libgtk-3-0, wmctrl"
+section = "utils"
+priority = "optional"
+assets = [
+    ["target/release/save-windows-status", "usr/local/bin/save-windows-status", "755"],
+    ["save-windows-status.desktop", "usr/share/applications/save-windows-status.desktop", "644"],
+    ["save-windows-status.desktop", "etc/xdg/autostart/save-windows-status.desktop", "644"],
+    ["save-windows-status.service", "etc/systemd/system/save-windows-status.service", "644"]
+]

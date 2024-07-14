@@ -1,0 +1,17 @@
+[Unit]
+Description=Save Windows Status Service
+DefaultDependencies=no
+Before=shutdown.target reboot.target halt.target logout.target
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=/usr/local/bin/save-windows-status
+Environment=DISPLAY=:0
+Environment=RUST_BACKTRACE=1
+Restart=no
+RemainAfterExit=true
+
+[Install]
+WantedBy=halt.target reboot.target shutdown.target logout.target graphical-session.target
